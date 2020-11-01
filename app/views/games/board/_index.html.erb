@@ -1,0 +1,8 @@
+ <%= render('games/board/part1', steps: steps.first)%>
+ <div class="row w-100">
+   <%= render('games/board/part4', steps: steps[3]) rescue "<div class='col-4'></div>".html_safe%>
+   <div class="col-5"></div>
+   <%= render('games/board/part2', steps: steps[1]) rescue ""%>
+ </div>
+ <%= render('games/board/part3', steps: steps[2]) rescue ""%>
+    

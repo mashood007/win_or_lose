@@ -1,0 +1,7 @@
+<div class="col-12 d-flex flex-row " style="margin-left: -15px;">
+  <% steps.each do |step|%>
+    <div class="border b-1 p-2" style="width: <%= step_width(steps) %>%;">
+      <%= send(step.title) rescue ""%>
+    </div>
+  <%end%>
+</div>

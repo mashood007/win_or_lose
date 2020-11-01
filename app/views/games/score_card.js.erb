@@ -1,0 +1,5 @@
+$('.score-card').html("<%=escape_javascript(render("scorecard", score_card: @score_card))%>")
+$('.score-card').toggleClass("d-none")
+<% if @score_card.blank?%>
+  alert("empty")
+<%end%>

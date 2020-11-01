@@ -1,0 +1,7 @@
+<div class="col-3 d-flex flex-column">
+  <% steps.each do |step|%>
+    <div class="border b-1 p-2 ">
+      <%= send(step.title) rescue ""%>
+    </div>
+  <%end%>
+</div>

@@ -1,0 +1,23 @@
+
+AnimateRotate(360)
+<%if @step.title == 'h' && @step.hotel.try(:player_id).blank?%>
+  $('.dice_card').hide()
+  $("#hotel_choice").html("<%= escape_javascript(render("games/hotel/form", hotel: @step.hotel, player_id: @player_id))%>")
+<%else%>
+  $('.player').removeClass("btn-success")
+  $("#player_<%= @player_id%>").addClass("btn-success")
+  $("#hotel_choice").html("Next One")
+<%end%>
+
+
+function AnimateRotate(angle) {
+    var $elem = $('.dice_card svg');
+    $({deg: 0}).animate({deg: angle}, {
+        duration: 1000,
+        step: function(now) {
+            $elem.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        }
+    });
+}

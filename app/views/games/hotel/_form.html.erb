@@ -1,0 +1,5 @@
+<%= form_tag hotel_url(hotel), remote: true, method: :put do%>
+  <%= select_tag :buy, options_for_select([["buy", "yes"], ["Rent", "no"]]), :prompt => "Select" %>
+  <%= hidden_field_tag :player_id, player_id%>
+  <%= submit_tag "save", remote: true%>
+<%end%>

@@ -1,0 +1,7 @@
+<div class="" style="width: 100%;margin-right: 3%;">
+  <% steps.each do |step|%>
+    <div class="border b-1 p-2 float-right" style="height: 3rem;width: <%= step_width(steps) %>%;">
+      <%= send(step.title) rescue ""%>
+    </div>
+  <%end%>
+</div>

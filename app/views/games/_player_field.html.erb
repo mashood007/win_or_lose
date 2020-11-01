@@ -1,0 +1,13 @@
+<div class="nested-fields d-flex p-2">
+    <div class="h5">
+    Player 
+    </div>
+    <%= f.hidden_field :_destroy %>
+    <div class="col-5">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div class="col-3">
+        <%= link_to "Remove", '#', class: "btn btn-warning remove_fields" %>
+    </div>
+</div>

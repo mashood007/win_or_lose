@@ -1,0 +1,47 @@
+<div class="content ml-2">
+  <div class="row">
+    <div class="h3">
+      <%= @game.title%>
+    </div>
+    <div class=" col-4">
+      <%= link_to "exit", exit_games_path, class: "float-right"%>
+    </div>
+  </div>
+
+  <div class="row bg-info col-12">
+    <% @game.players.each do |player|%>
+      <div class="col-2  mr-2 p-1 player" id="player_<%=player.id%>">
+        <%= player.name%>
+        <%= link_to "score", player, remote: true%>
+      </div>
+    <%end%>
+  </div>
+
+  <div class="row">
+    <div class="row col-8">
+       <%= render 'games/board/index', steps: @game.steps.each_slice((@game.steps.count/4).to_i).to_a%>
+       <div class="col-12">
+         In Short: <%= @game.steps.collect{|step| step.title.capitalize}%>
+       </div>
+    </div>
+    <div class="col-4 bg-info">
+      <div class="p-4">
+        <%= link_to dice_games_path, remote: true, class: "dice_card btn btn-danger" do%>
+          <%= dice%>
+        <%end%>
+        <div class="col-10" id="hotel_choice">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row p-3">
+    <div class="col-12">
+      <%= link_to score_card_games_path, class: "btn btn-primary dropdown-toggle",data: {toggle: "dropdown"}, remote: true do%>
+        History<span class="caret"></span>
+      <%end%>
+      <div class="col-12 row score-card d-none">
+      </div>
+    </div>
+  </div>
+</div>
